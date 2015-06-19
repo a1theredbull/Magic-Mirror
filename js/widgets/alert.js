@@ -1,0 +1,3 @@
+var ALERT = function() {
+	
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="css/animate.css" rel="stylesheet" />
+
+  <script src="js/jquery.min.js"></script>
+
+  <!-- WIDGETS -->
+  <script src="js/widgets/weather.js"></script>
+  <script src="js/widgets/alert.js"></script>
+  <script src="js/widgets/joke.js"></script>
+  <script src="js/widgets/reminders.js"></script>
+  <script src="js/widgets/talk.js"></script>
+
+  <!-- CONSTANT WIDGETS -->
+  <script src="js/widgets/clock.js"></script>
+
+  <script src="js/actions.js"></script>
+  <script src="js/annyang.js"></script>
+  <script>
+  (function() {
+    if (annyang) {
+      annyang.addCommands(commands);
+      annyang.debug();
+      annyang.start();
+    }
+  })();
+  </script>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+
+    #clock {
+      position: absolute;
+      right: 0;
+      top: 0;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="talk" class="widget">
+  </div>
+  <div id="clock" class="constant-widget">
+  </div>
+  <div id="weather" class="widget">
+  </div>
+  <div id="reminders" class="widget">
+    <ol></ol>
+  </div>
+</body>
+</html>
