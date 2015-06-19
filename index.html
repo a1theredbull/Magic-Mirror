@@ -33,7 +33,15 @@
   })();
   </script>
   <style>
+    html {
+      width: 100%;
+      height: 100%;
+    }
+
     body {
+      width: 100%;
+      height: 100%;
+      cursor: none;
       background-color: black;
       color: white;
       font-family: 'Open Sans', sans-serif;
@@ -74,10 +82,15 @@
 
     #weather {
       text-align: center;
+      display: none;
     }
 
     #weather #temperature {
       font-size: 160px;
+    }
+
+    #weather #forecast span {
+      vertical-align: top;
     }
   </style>
 </head>
@@ -104,6 +117,10 @@
     </div>
     <div class="container">
       <ol></ol>
+    </div>
+  </div>
+  <div id="video" class="widget">
+    <div class="container">
     </div>
   </div>
 </body>
