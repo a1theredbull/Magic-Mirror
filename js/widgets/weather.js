@@ -11,23 +11,16 @@ var weatherIcons = {
 };
 
 function getWeather(position) {
-  //open weather map API
-  var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" +
-                    position.coords.latitude +
-                    "&lon=" +
-                    position.coords.longitude +
-                    "&units=imperial";
-
-  $.get(weatherUrl, function( data ) {
-    console.log(data);
-    var temp = Math.round(data.main.temp);
-    var forecast = data.weather[0].description;
-    var icon = weatherIcons[data.weather[0].icon];
-
-    $('#weather #temperature').html(temp);
-    $('#weather #forecast img').attr({ 'src': icon});
-    $('#weather #forecast span').html(forecast);
-    $('#weather .container').fadeIn();
+  $.simpleWeather({
+    location: 'Grand Rapids, MI',
+    woeid: '',
+    unit: 'f',
+    success: function(weather) {
+      $('#weather #temperature').html(weather.temp);
+      $('#weather #forecast i').attr({ 'class': "icon-" + weather.code })
+      $('#weather #forecast span').html(weather.currently);
+      $('#weather .container').fadeIn();
+    }
   });
 }
 

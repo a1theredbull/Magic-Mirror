@@ -15,7 +15,7 @@ var commands = {
     hideAll();
     TALK.bye();
   },
-  'show weather': function() {
+  'show (me the) weather': function() {
     hideAll();
     WEATHER.showWeather();
   },
