@@ -3,11 +3,10 @@ function updateClock ( )
     var currentTime = new Date ( );
     var currentHours = currentTime.getHours ( );
     var currentMinutes = currentTime.getMinutes ( );
-    var currentSeconds = currentTime.getSeconds ( );
  
     // Pad the minutes and seconds with leading zeros, if required
     currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+    //currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
  
     // Choose either "AM" or "PM" as appropriate
     var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
@@ -19,13 +18,15 @@ function updateClock ( )
     currentHours = ( currentHours == 0 ) ? 12 : currentHours;
  
     // Compose the string for display
-    var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+    var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay.toLowerCase();
      
-     
-    $("#clock").html(currentTimeString);
+    
+    $('#clock #date').html(moment().format('ll'));
+
+    $("#clock #time").html(currentTimeString);
  }
 
 $(document).ready(function()
 {
-    setInterval('updateClock()', 1000);
+    setInterval('updateClock()', 60000);
 });

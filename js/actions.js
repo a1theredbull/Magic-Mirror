@@ -2,17 +2,20 @@ var timer;
 var timerTime;
 
 var commands = {
-  'hello': function() { 
-    alert('Hello world!'); 
+  'hello': function() {
+    $('.container').hide();
+    TALK.hello();
   },
   'bye': function() {
-    alert('Goodbye!');
+    $('.container').hide();
+    TALK.bye();
   },
-  ':placeholder weather': function(placeholder) {
-    WEATHER.getWeather();
+  'show weather': function() {
+    $('.container').hide();
+    WEATHER.showWeather();
   },
-  'I am testing the word :test': function(test) {
-    alert(test);
+  'hide weather': function() {
+    WEATHER.hideWeather();
   },
   'tell me a joke': function() {
     JOKE.getJoke();
@@ -21,12 +24,20 @@ var commands = {
 
   },
   'remind me to *something': function(something) {
+    $('.container').hide();
     REMINDERS.addReminder(something);
   },
   'remove reminder *something': function(reminderNo) {
     REMINDERS.removeReminder(reminderNo);
   },
   'reset reminders': function() {
-    REMINDERS.clearReminders();
+    REMINDERS.resetReminders();
+  },
+  'hide reminders': function() {
+    REMINDERS.hideReminders();
+  },
+  'show reminders': function() {
+    $('.container').hide();
+    REMINDERS.showReminders();
   }
 };

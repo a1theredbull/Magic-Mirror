@@ -1,4 +1,4 @@
-function showWeather(position) {
+function getWeather(position) {
   //open weather map API
   var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" +
                     position.coords.latitude +
@@ -10,21 +10,21 @@ function showWeather(position) {
     var temp = Math.round(data.main.temp);
     var forecast = data.weather[0].description;
 
-    $('#weather').html(temp + " : " + forecast);
-
-    $('#weather').fadeIn();
-    setTimeout(function() {
-      $('#weather').fadeOut();
-    }, 5000);
+    $('#weather #temperature').html(temp);
+    $('#weather #forecast span').html(forecast);
+    $('#weather .container').fadeIn();
   });
 }
 
 var WEATHER = {
-  getWeather: function() {
+  showWeather: function() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showWeather);
+      navigator.geolocation.getCurrentPosition(getWeather);
     } else {
         console.log("NO GEOLOCATION");
     }
+  },
+  hideWeather: function() {
+    $('#weather .container').fadeOut();
   }
 };
